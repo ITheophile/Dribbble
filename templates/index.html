@@ -1,0 +1,27 @@
+{% extends 'base.html '%}
+{% from "components/nav.html" import nav%}
+{% from "components/card.html" import card%}
+
+
+
+{% block title %}Home{% endblock title%}
+
+{% block content %}
+    <nav class="nav justify-content-center m-4">
+        {% for category in categories %}
+            {{ nav(category) }}
+        {% endfor %}
+    </nav> 
+
+    <div class="container">
+        <div class="row row-cols-1 
+        row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
+            {% for img in data %}
+                {{ card(img.file_path, img.author, img.likes, img.views) }}
+            {% endfor %}
+    
+        </div>
+    </div>
+    
+    
+{% endblock content %}

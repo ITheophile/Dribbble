@@ -1,0 +1,48 @@
+{% extends 'base.html '%}
+
+{% block title %}Admin Page{% endblock %}
+
+{% block content %}
+<form method=post enctype=multipart/form-data class="container w-50 mt-5">
+    <div class="mb-4">
+        <label for="formFile" class="form-label"><span>Upload new Image</span> </label>
+        <input class="form-control" id="formFile" type="file" name = "file" required>
+    </div>
+
+    <div class="mb-4">
+        <label for="author" class="form-label">Author name</label>
+        <input type="text" class="form-control" id="author" name = "author" required
+        disabled
+        >
+    </div>
+
+    <div class="mb-4">
+        <label for="likes" class="form-label">likes</label>
+        <input type="number" class="form-control" id="likes" name = "likes" min="0" required
+        disabled
+        >
+    </div>
+
+    <div class="mb-4">
+        <label for="views" class="form-label">views</label>
+        <input type="number" class="form-control" id="views" name = "views" min="0" required
+        disabled
+        >
+    </div>
+
+    <div class="mb-4">
+        <label for="categories" class="form-label">Category</label>
+        <select class="form-select" id="categories" name="category">
+          <option selected>Choose...</option>
+          {% for category in categories %}
+            <option value="{{category}}">{{category}}</option>
+          {% endfor %}
+        </select>
+    </div>
+    
+    <div>
+        <button type="submit" class="btn btn-primary">Add</button>
+    </div>       
+</form>
+
+{% endblock %}
